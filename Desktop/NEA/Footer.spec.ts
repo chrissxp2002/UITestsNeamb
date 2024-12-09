@@ -6,14 +6,14 @@ import { HomePage } from '../../Pages/NEA/HomePage.ts';
 test('NEA_ValidateFooterMoneyLink', async ({ page }) => {
   const homePage = new HomePage(page);
   await homePage.goto();
-  await page.getByRole('link', { name: 'Money' }).click();
+  await page.locator("//div[@class='container footer-container']//a[@href='/products/money']").click();
   await expect(page.getByRole('heading', { name: 'Solutions to help give you' })).toBeVisible({timeout: 10000 });
   });
 
 test('NEA_ValidateFooterRetirementLink', async ({ page }) => {
   const homePage = new HomePage(page);
   await homePage.goto();
-  await page.getByRole('link', { name: 'Retirement' }).click();
+  await page.locator("//div[contains(@class,'footer-container')]//a[@href='/products/retirement-overview']").click();
   await expect(page.getByText('Invest in Yourself with the')).toBeVisible({timeout: 10000 });
   });
 
@@ -57,7 +57,7 @@ test('NEA_ValidateFooterTravelLink', async ({ page }) => {
   test('NEA_ValidateFooterNoCostBenefitsLink', async ({ page }) => {
     const homePage = new HomePage(page);
     await homePage.goto();
-    await page.getByRole('link', { name: 'No-Cost Benefits' }).nth(1).click();
+    await page.locator("//div[contains(@class,'footer-container')]//a[@href='/pages/no-cost-benefits']").click();
     await expect(page.getByRole('heading', { name: 'No-Cost Benefits just for you.' }).locator('span').first()).toBeVisible({timeout: 10000 });
     await expect(page.getByText('just for you.').first()).toBeVisible({timeout: 10000 });
     await expect(page.getByRole('heading', { name: 'Did you know that there are' })).toBeVisible({timeout: 10000 });
@@ -132,7 +132,7 @@ test('NEA_ValidateFooterCreditCardLogo', async ({ page }) => {
   await homePage.goto();
   await expect(page.getByRole('link', { name: 'footer-logo' })).toBeVisible({timeout: 10000 });
   await expect(page.getByRole('link', { name: 'NEA Customized Cash Rewards Credit Card', exact: true })).toBeVisible({timeout: 10000 });
-  await expect(page.getByRole('link', { name: 'NEA® Customized Cash Rewards Visa Signature® Credit Card' })).toBeVisible({timeout: 10000 });
+  await expect(page.locator("(//div[contains(@class,'footer-container')]//a[contains(@href,'https://secure.bankofamerica.com/apply-now-services/credit-cards')])[2]")).toBeVisible({timeout: 10000 });
   await expect(page.getByRole('link', { name: 'APPLY NOW', exact: true })).toBeVisible({timeout: 10000 });
 });
 

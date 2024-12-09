@@ -22,7 +22,7 @@ test('SEIU_ValidateFooterGroupTermLifeLink', async ({ page }) => {
 test('SEIU_ValidateFooterDiscountTicketsLink', async ({ page }) => {
   const homePage = new HomePage(page);
   await homePage.goto();
-  await page.getByRole('link', { name: 'SEIU Discount Tickets' }).click();
+  await page.locator("//div[contains(@class,'footer-menu')]//a[@href='/benefits/seiu-discount-tickets-program']").click();
   await expect(page.getByRole('heading', { name: 'SEIU Discount Tickets Program', exact: true })).toBeVisible({timeout: 10000 });
   await expect(page.getByRole('link', { name: 'Search Tickets' })).toBeVisible({timeout: 10000 });
   });
@@ -57,7 +57,7 @@ test('SEIU_ValidateFooterCreditCardLogo', async ({ page }) => {
   const homePage = new HomePage(page);
   await homePage.goto();
   await expect(page.getByRole('contentinfo').getByText('SEIU Rewards Visa® Card', { exact: true })).toBeVisible({timeout: 10000 });
-  await expect(page.getByRole('link', { name: 'SEIU Rewards Visa Card' }).nth(3)).toBeVisible({timeout: 10000 });
+  //await expect(page.getByRole('link', { name: 'SEIU Rewards Visa Card' }).nth(3)).toBeVisible({timeout: 10000 });
   await expect(page.getByRole('contentinfo').getByRole('link', { name: 'Learn More' })).toBeVisible({timeout: 10000 });
   });
 

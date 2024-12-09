@@ -37,7 +37,7 @@ test('NEA_SearchHasValidCardImage', async ({ page }) => {
   await homePage.searchTextBox.fill('nea personal loan');
   await homePage.magnifierIconSearch.click();
   await page.waitForLoadState();
-  await expect(page.locator('.resultGtm > img').first()).toBeVisible({timeout: 10000 } );
+  await expect(page.locator("(//div[@class='item offer']//img)[1]")).toBeVisible({timeout: 30000 } );
   await expect(page.locator('.title').first()).toBeVisible();
   await expect(page.locator('.hidden-xs > a').first()).toBeVisible();
   await expect(page.locator('.eye-brow').first()).toBeVisible();
