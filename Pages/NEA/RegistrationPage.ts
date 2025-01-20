@@ -57,7 +57,7 @@ export class RegistrationPage extends BasePage{
 
 
       async goto() {
-        await this.page.goto(testData.Url.neambBaseUrl + '/account/registration');
+        await this.page.goto(testData.Url.neambBaseUrl + 'account/registration');
       }
 
       async Register(userEmail) {

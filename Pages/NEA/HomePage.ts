@@ -21,6 +21,7 @@ export class HomePage extends BasePage{
     readonly userLogo: Locator;
     readonly signOutBtn: Locator;
     readonly signInBtn: Locator ; 
+    readonly profileAndPassword: Locator;
     
 
     constructor(page: Page) {
@@ -38,6 +39,7 @@ export class HomePage extends BasePage{
         this.userLogo = page.locator("//div[@class='dropdown']//span[@class='avatar-container']");
         this.signOutBtn = page.locator("//div[@class='sign-out']");
         this.signInBtn = page.locator("//span[contains(text(),'Sign In')]");
+        this.profileAndPassword = page.locator("//*[@id='sign-in-menu']//a[@href='/account/profile']");
         
       }
 
@@ -50,6 +52,12 @@ export class HomePage extends BasePage{
         await this.userLogo.click();
         await this.signOutBtn.click();
         await expect(this.signInBtn).toBeVisible();
+      }
+
+      async SelectProfileAndPassword()
+      {
+         await this.userLogo.click();
+         await this.profileAndPassword.click();       
       }
     
 }

@@ -8,12 +8,12 @@ import { HomePage } from '../../Pages/SEIU/HomePage.ts';
 
 
 test.beforeAll(async ({request}) => {
-    const api =  new APICaller(request);
+    /*const api =  new APICaller(request);
     const accessToken = await api.GetAccessToken();
     await api.DeleteUser(accessToken,"user3@guerrillamail.de","1");
     await api.DeleteUser(accessToken,"user3@guerrillamail.de","2");
     await api.DeleteUser(accessToken,"user4@guerrillamail.de","1");
-    await api.DeleteUser(accessToken,"user4@guerrillamail.de","2");
+    await api.DeleteUser(accessToken,"user4@guerrillamail.de","2");*/
   });
 
 
