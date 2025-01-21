@@ -28,7 +28,7 @@ export class ForgotEmailPage extends BasePage{
         this.year = page.locator("#year");
         this.zip = page.locator("#zip");
         this.retrieveMyEmailBtn = page.locator("//button[@type='submit']");
-        this.forgotEmailAddrLabel = page.locator("//div[contains(text(),'Your login email address is:')]");
+        this.forgotEmailAddrLabel = page.locator("//div[contains(text(),'Your username is:')]");
         this.signinBtn = page.locator("//a[@href='/login']");
         this.forgotPwdAddrLabel = page.locator("//div[contains(text(),'Forgot your password? Click below')]");
         this.forgotPwdBtn = page.locator("//a[contains(text(),'Submit')]");
@@ -37,7 +37,7 @@ export class ForgotEmailPage extends BasePage{
       }
 
       async goto() {
-        await this.page.goto(testData.Url.neambBaseUrl + "/account/forgot-email");
+        await this.page.goto(testData.Url.seiumbBaseUrl + "/account/forgot-email");
       }
 
 

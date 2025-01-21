@@ -20,6 +20,7 @@ export class HomePage extends BasePage{
     readonly userLogo: Locator;
     readonly signOutBtn: Locator;
     readonly signInBtn: Locator ; 
+    readonly profileAndPassword: Locator;
     
 
     constructor(page: Page) {
@@ -33,9 +34,10 @@ export class HomePage extends BasePage{
         this.allMainMenuLinks = page.locator("//ul[@role='menu']/li/a");
         this.heroBtn = page.getByRole('link', { name: 'Become a Member' });
         this.carouselBtn = page.getByRole('link', { name: 'Search Tickets' });
-        this.userLogo = page.locator("(//div[contains(@class,'dropdown')]//span[@class='avatar-container'])[2]");
+        this.userLogo = page.locator("(//span[@class='name'])[2]");
         this.signOutBtn = page.locator("//a[@class='link-underline']");
         this.signInBtn = page.locator("(//span[contains(text(),'Sign In')])[1]");
+        this.profileAndPassword = page.locator("(//div[@class='login-curtain__container']//a[@href='/account/profile'])[1]");
       }
 
       async goto() {
@@ -47,6 +49,12 @@ export class HomePage extends BasePage{
         await this.userLogo.click();
         await this.signOutBtn.click();
         await expect(this.signInBtn).toBeVisible();
+      }
+
+      async SelectProfileAndPassword()
+      {
+         await this.userLogo.click();
+         await this.profileAndPassword.click();       
       }
     
     

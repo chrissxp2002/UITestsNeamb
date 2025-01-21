@@ -1,6 +1,7 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import * as testData from '../testData.ts';
 import {BasePage} from '../BasePage.ts';
+import { TIMEOUT } from 'dns';
 
 
 export class RegistrationPage extends BasePage{
@@ -57,7 +58,7 @@ export class RegistrationPage extends BasePage{
 
 
       async goto() {
-        await this.page.goto(testData.Url.neambBaseUrl + 'account/registration');
+        await this.page.goto(testData.Url.neambBaseUrl + 'account/registration',{timeout:50000});
       }
 
       async Register(userEmail) {

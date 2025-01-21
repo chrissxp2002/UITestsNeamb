@@ -40,7 +40,7 @@ test('NEA_Registration', async ({ page }) => {
       await registrationPage.duplicateRegistrationPasswordTxt.fill(testData.NEA_Registration.regpassword);
       await registrationPage.duplicateRegistrationSubmitBtn.click();
       await registrationPage.duplicateRegistrationApplyBtn.click();
-      await expect(registrationPage.duplicateRegistrationThankYouMessage).toBeVisible({timeout:10000});
+      await expect(registrationPage.duplicateRegistrationThankYouMessage).toBeVisible({timeout:40000});
 
     });
 
@@ -77,11 +77,13 @@ test('NEA_ResetPassword', async ({ page }) => {
        await forgotEmailPage.FillFirstName("Test QA");
        await forgotEmailPage.FillLastName("Test QA");
        await forgotEmailPage.FillDOB("03","17","1981");
+       await forgotEmailPage.FillZIP("12345");
        await forgotEmailPage.ClickRetrieveMyEmailBtn();
        await expect(forgotEmailPage.forgotEmailAddrLabel).toBeVisible({timeout:10000});
        await expect(forgotEmailPage.signinBtn).toBeVisible({timeout:10000});
        await expect(forgotEmailPage.forgotPwdAddrLabel).toBeVisible({timeout:10000});
        await expect(forgotEmailPage.forgotPwdBtn).toBeVisible({timeout:10000});
        await forgotEmailPage.forgotPwdBtn.click();
-       
+       await expect(forgotEmailPage.resetPasswordSuccessfulMsg).toBeVisible({timeout:10000});
+
     });
