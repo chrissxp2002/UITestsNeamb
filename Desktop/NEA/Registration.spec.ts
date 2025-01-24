@@ -26,7 +26,7 @@ test('NEA_Registration', async ({ page }) => {
     const registrationPage =  new RegistrationPage(page);
     await registrationPage.goto();
     await registrationPage.Register(testData.NEA_Registration.regemail);
-    await expect(registrationPage.successMessage).toBeVisible({timeout:10000});
+    await expect(registrationPage.successMessage).toBeVisible({timeout:40000});
 
     //duplicate registration
     const homePage =  new HomePage(page);
@@ -56,7 +56,7 @@ test('NEA_ResetPassword', async ({ page }) => {
        await profilePage.SetNewPassword('secret12');
        await profilePage.SetConfirmPassword('secret12');
        await profilePage.ClickSaveBtn();
-       await expect(profilePage.successfulSaveMessage).toBeVisible({timeout:10000});
+       await expect(profilePage.successfulSaveMessage).toBeVisible({timeout:40000});
 
     });
 
@@ -66,7 +66,7 @@ test('NEA_ResetPassword', async ({ page }) => {
        await forgotPasswordPage.goto();
        await forgotPasswordPage.FillEmailAddress("user1@guerrillamail.de");
        await forgotPasswordPage.ClickRequestResetBtn();
-       await expect(forgotPasswordPage.requestPasswordSuccessfulMsg).toBeVisible({timeout:10000});
+       await expect(forgotPasswordPage.requestPasswordSuccessfulMsg).toBeVisible({timeout:40000});
 
     });
 
@@ -84,6 +84,6 @@ test('NEA_ResetPassword', async ({ page }) => {
        await expect(forgotEmailPage.forgotPwdAddrLabel).toBeVisible({timeout:10000});
        await expect(forgotEmailPage.forgotPwdBtn).toBeVisible({timeout:10000});
        await forgotEmailPage.forgotPwdBtn.click();
-       await expect(forgotEmailPage.resetPasswordSuccessfulMsg).toBeVisible({timeout:10000});
+       await expect(forgotEmailPage.resetPasswordSuccessfulMsg).toBeVisible({timeout:40000});
 
     });

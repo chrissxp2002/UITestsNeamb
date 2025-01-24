@@ -45,7 +45,7 @@ export class RegistrationPage extends BasePage{
         this.dobDay = page.locator("#day");
         this.dobYear = page.locator("#year");
         this.createAccountBtn = page.locator('#registrationStep2 button');
-        this.successMessage = page.locator("#message-normal h2");
+        this.successMessage = page.locator("(//h2[contains(text(),'Thank you')])[2]");
         this.duplicateRegistrationAlertMessage = page.locator("(//h2[contains(text(),'Duplicate Registration')])[1]");
         this.duplicateExistingMailCheck = page.locator("(//input[@name='selectedid'])[2]");
         this.duplicateRegistrationSubmitBtn = page.locator("//button[@type='submit']");
