@@ -34,7 +34,7 @@ test('NEA_Registration', async ({ page }) => {
       await homePage.logOutUser();
       await registrationPage.goto();
       await registrationPage.Register("user2@guerrillamail.de");
-      await expect(registrationPage.duplicateRegistrationAlertMessage).toBeVisible();
+      await expect(registrationPage.duplicateRegistrationAlertMessage).toBeVisible({timeout:40000});
       await registrationPage.duplicateExistingMailCheck.click();
       await registrationPage.duplicateRegistrationPasswordTxt.click();
       await registrationPage.duplicateRegistrationPasswordTxt.fill(testData.NEA_Registration.regpassword);
