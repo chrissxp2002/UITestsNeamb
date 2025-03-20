@@ -9,7 +9,7 @@ test('NEA_RegularLogin', async ({ page }) => {
   await loginPage.goto();
   await loginPage.Login(testData.NEAUser991.username, testData.NEAUser991.password);
   await loginPage.ClickLoginBtn();
-  await expect(page.getByRole('link', { name: 'Jessica avatar' })).toBeVisible();
+  await expect(page.locator("(//span[@class='name'])[2]")).toBeVisible();
 });
 
 

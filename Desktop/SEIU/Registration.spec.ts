@@ -52,13 +52,11 @@ test('SEIU_Registration', async ({ page }) => {
            await loginPage.Login("user3@guerrillamail.de", "secret12");
            await loginPage.ClickLoginBtn();
            const homePage =  new HomePage(page);
-          // await homePage.goto();
-           await homePage.mainLogo.click();
-           await homePage.SelectProfileAndPassword();
+           await homePage.mainLogo.click({ force: true });
+          await homePage.SelectProfileAndPassword();
 
            
            const profilePage =  new ProfilePage(page);
-           //await profilePage.goto();
            await profilePage.SetCurrentPassword('secret12');
            await profilePage.SetNewPassword('secret12');
            await profilePage.SetConfirmPassword('secret12');
@@ -68,7 +66,7 @@ test('SEIU_Registration', async ({ page }) => {
     });
     
     
-  test('SEIU_ForgotPassword', async ({ page }) => {
+ test('SEIU_ForgotPassword', async ({ page }) => {
           const forgotPasswordPage = new ForgotPasswordPage(page);
            await forgotPasswordPage.goto();
            await forgotPasswordPage.FillEmailAddress("user3@guerrillamail.de");

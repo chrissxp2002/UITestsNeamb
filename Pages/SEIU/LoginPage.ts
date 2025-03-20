@@ -13,7 +13,7 @@ export class LoginPage extends BasePage{
     constructor(page: Page) {
         super(page);
         this.email = page.getByPlaceholder('Email');
-        this.password = page.getByPlaceholder('Password');
+        this.password = page.locator('#password');
         this.loginButton = page.getByRole('button', { name: 'Sign In' });
         this.loginAnchor = page.locator("#submitLogin");
       }

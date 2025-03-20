@@ -34,7 +34,7 @@ export class HomePage extends BasePage{
         this.allMainMenuLinks = page.locator("//ul[@role='menu']/li/a");
         this.heroBtn = page.getByRole('link', { name: 'Become a Member' });
         this.carouselBtn = page.getByRole('link', { name: 'Search Tickets' });
-        this.userLogo = page.locator("(//span[@class='name'])[2]");
+        this.userLogo = page.locator("(//span[@class='avatar-container'])[2]");
         this.signOutBtn = page.locator("//a[@class='link-underline']");
         this.signInBtn = page.locator("(//span[contains(text(),'Sign In')])[1]");
         this.profileAndPassword = page.locator("(//div[@class='login-curtain__container']//a[@href='/account/profile'])[1]");
@@ -53,7 +53,8 @@ export class HomePage extends BasePage{
 
       async SelectProfileAndPassword()
       {
-         await this.userLogo.click();
+         await this.userLogo.click({ force: true });
+         await expect(this.profileAndPassword).toBeVisible();
          await this.profileAndPassword.click();       
       }
     
