@@ -1,10 +1,10 @@
 export class Url{
-    static neambBaseUrl = 'https://qa.neamb.com/';
-    static seiumbBaseUrl = 'https://qa.seiumb.com/';
+    static neambBaseUrl = 'https://www.neamb.com/';
+    static seiumbBaseUrl = 'https://www.seiumb.com/';
 }
 
 export class APIServer{
-    static Url = 'https://apiqa.mbctech.net/';
+    static Url = 'https://apiqa.mbctech.net/';s
 }
 
 export class NEAUser991{

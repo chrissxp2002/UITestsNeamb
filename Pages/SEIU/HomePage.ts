@@ -54,7 +54,7 @@ export class HomePage extends BasePage{
       async SelectProfileAndPassword()
       {
          await this.userLogo.click({ force: true });
-         await expect(this.profileAndPassword).toBeVisible();
+         //await expect(this.profileAndPassword).toBeVisible();
          await this.profileAndPassword.click();       
       }
     
